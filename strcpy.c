@@ -1,9 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
+int len(const char *string)
+{
+    size_t counter = 0;
+    while (string[counter] != '\0')
+        ++counter;
+    return counter;
+}
 
-char *strcpy(char *reciver, const char *source)
+char *strcpy(const char *source)
 {
     size_t i = 0;
+    char *reciver = malloc(len(source) + 1);
+    if (reciver == NULL)
+        return NULL;
     while ((reciver[i] = source[i]) != '\0')
     {
         /* code */
@@ -12,28 +22,13 @@ char *strcpy(char *reciver, const char *source)
     return reciver;
 }
 
-int len(const char *string)
-{
-    size_t counter = 0;
-    while (string[counter] != '\0')
-    {
-        ++counter;
-        /* code */
-    }
-    return counter;
-}
 int main(int argc, char const *argv[])
 {
 
     const char *name1 = "mohamad khashayar zade";
-    char *save = malloc(len(name1) + 1);
-    if (save == NULL)
-    {
-        /* code */
-    }
+    char *save = strcpy(name1);
+    puts(save);
 
-    char *result = strcpy(save, name1);
-    puts(result);
     free(save);
     return 0;
 }
