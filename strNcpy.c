@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <strings.h>
 /*I somehow hate to call the header file for using strings in C so i decide to work on each function on my own*/
 
 #define len(a) sizeof(a) / sizeof((a)[0])
